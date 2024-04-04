@@ -1,0 +1,25 @@
+.news_quick_card {
+    width: 300px;
+    min-height: 400px;
+}
+.news_quick_card__img {
+    width: 100%;
+    height: 50%;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+.news_quick_card__bottom_info {
+    height: 50%;
+}
+.news_quick_card__name {
+    height: 45%;
+}
+.news_quick_card__name_title {
+    font-weight: normal;
+}
+.news_quick_card__author {
+    height: 5%;
+}
