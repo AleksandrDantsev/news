@@ -1,0 +1,12 @@
+.bt_read_later {
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    border-radius: 6px;
+    background-color: #fff;
+    cursor: pointer;
+    transition-duration: 500ms;
+    &:hover {
+        box-shadow: 0 0 5px 1px gray;
+    }
+}
