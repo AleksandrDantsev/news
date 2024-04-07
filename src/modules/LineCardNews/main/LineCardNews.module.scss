@@ -1,0 +1,16 @@
+.line_news {
+
+    min-height: 400px;
+    border-bottom: solid 1px rgb(228, 228, 228);
+    padding: 15px 0;
+}
+.title {
+    margin: 10px 0;
+  h2 {
+    font-size: 25px;
+  }  
+}
+.news_cards {
+    display: flex;
+    justify-content: space-between;
+}
