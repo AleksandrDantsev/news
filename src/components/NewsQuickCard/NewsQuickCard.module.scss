@@ -1,5 +1,5 @@
 .news_quick_card {
-    width: 300px;
+    width: calc(100% / 4 - 10px);
     min-height: 400px;
 }
 .news_quick_card__img {
