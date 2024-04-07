@@ -1,6 +1,14 @@
+.top_news {
+    display: flex;
+}
 .wrapper {
-    width: 90%;
+    width: 85%;
     margin: 50px auto;
+}
+
+.column_news_block_wrapper {
+    width: 57%;
+    margin-right: 3%;
 }
 
 .column_news_wrapper {
