@@ -1,22 +1,30 @@
 import React, { memo } from "react";
 import st from "./ListShortNewsColumnItem.module.scss";
 
-const ListShortNewsColumnItem:React.FC = memo(() => {
+interface IListShortNewsColumnItem {
+    title: string;
+    author?: string;
+    img?: string;
+    timeRead: string;
+}
+
+const ListShortNewsColumnItem:React.FC<IListShortNewsColumnItem> = memo(({title, author, img, timeRead}) => {
+
     return(
         <section className={st.news_column}>
             <div className={st.news_column_infoleft}>
                 <div className={st.news_column_author}>
-                    michel swanson
+                    {Boolean(author) && author}
                 </div>
                 <div className={st.news_column_title}>
-                    <h3>werrtertergvbcvbcvbdfg</h3>
+                    <h3>{title}</h3>
                 </div>
                 <div className={st.news_column_timeread}>
-                    10 min read
+                    {timeRead} min read
                 </div>
             </div>
             <div className={st.news_column__image}>
-                <img src="https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*" alt="news-image" />
+                {Boolean(img) && <img src={img} alt="news-image" />}
             </div>
         </section>
     );
