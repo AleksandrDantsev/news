@@ -1,4 +1,4 @@
-const formatDateArticleCreated = (textDate: string | undefined) => {
+const formatDateArticleCreated = (textDate: string | undefined): string => {
     if (!Boolean(textDate)) return '';
     
     const options = {

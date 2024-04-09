@@ -1,6 +1,6 @@
 // get format date "2024-05-29"
 
-const formatDate = (shiftBackDay = 0) => {
+const formatDate = (shiftBackDay = 0): string => {
     const date = new Date();
 
     const year = date.getFullYear();
