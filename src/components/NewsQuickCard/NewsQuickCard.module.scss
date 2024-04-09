@@ -1,22 +1,29 @@
+.button_absolute_block {
+    position: absolute;
+    z-index: 20;
+    right: 10px;
+    bottom: 10px;
+    visibility: hidden;
+    opacity: 0;
+    transition-duration: 300ms;
+}
 .news_quick_card {
     width: calc(100% / 4 - 10px);
-    min-height: 400px;
+    height: 400px;
 }
 .news_quick_card__img {
     position: relative;
     width: 100%;
     height: 50%;
+    &:hover .button_absolute_block{
+        visibility: visible;
+        opacity: 1;
+    }
     img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
-}
-.button_absolute_block {
-    position: absolute;
-    z-index: 20;
-    right: 20px;
-    top: 20px;
 }
 .news_quick_card__bottom_info {
     height: 50%;
@@ -28,5 +35,6 @@
     font-weight: normal;
 }
 .news_quick_card__author {
+    margin-top: 18px;
     height: 5%;
 }
