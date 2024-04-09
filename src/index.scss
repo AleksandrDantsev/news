@@ -79,7 +79,10 @@ sup {
   position: relative;
   vertical-align: baseline;
 }
-
+a {
+  text-decoration: none;
+  color: inherit;
+}
 sub {
   bottom: -0.25em;
 }
