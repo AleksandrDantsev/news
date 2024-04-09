@@ -1,5 +1,5 @@
 .news_column {
-    display: flex;
+    
     width: 100%;
     min-height: 120px;
     margin: 0 10px 10px 0;
@@ -10,7 +10,9 @@
         border-color: rgb(122, 122, 122); 
     }
 }
-
+.news_column_link {
+    display: flex;
+}
 .news_column_infoleft {
     width: 80%;
 }
@@ -19,11 +21,16 @@
 }
 .news_column_title {
     h3 {
-        margin: 10px 0;
-        font-size: 24px;
+        margin: 10px 15px 10px 0;
+        font-size: 22px;
     }
 }
+.news_published_time {
+    margin: 10px 0 2px 0;
+    font-size: 13px;
+}
 .news_column_timeread {
+    margin-top: 12px;
     color: #868686;
 }
 .news_column__image {
