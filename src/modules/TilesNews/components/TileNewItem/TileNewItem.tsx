@@ -1,5 +1,7 @@
 import React, {memo} from "react";
 import st from "./TileNewItem.module.scss";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 interface ITileNewItem {
     title: string;
@@ -19,7 +21,7 @@ const TileNewItem:React.FC<ITileNewItem> = memo(({title, description, img}) => {
                 </div>
             </div>
             <div className={st.tile_new_item__img}>
-                <img src={img} alt={title} />
+                <LazyLoadImage effect="blur" src={img} alt={title} />
             </div>
         </div>
     );
