@@ -11,8 +11,8 @@ const useFetchData = <T>(link: string, dependency: any = null, KEY: string = KEY
                 const articles = await response.json();
                 setData(articles["articles"]);
             }
-            catch(err) {
-                console.log("err");
+            catch(err: any) {
+                console.log(`${err.name}\n ${err.message}`);
             }
           })()
     }, [dependency])
