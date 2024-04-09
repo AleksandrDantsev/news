@@ -15,7 +15,8 @@ const LineCardNews:React.FC<ILineCardNes> = ({dataArray}) => {
             <div className={st.title}><h2>news</h2></div>
             <div className={st.news_cards}>
                 {
-                    dataArray.length > 0 ? dataArray.map(article => <NewsQuickCard title={article["title"]}
+                    dataArray.length > 0 ? dataArray.map((article, i) => <NewsQuickCard key={article["title"] + i}
+                                                                                 title={article["title"]}
                                                                                  author={article?.["author"]}
                                                                                  img={article?.["urlToImage"]}
                                                                                 />) : ""
