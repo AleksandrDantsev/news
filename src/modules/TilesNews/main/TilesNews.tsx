@@ -9,15 +9,16 @@ import { TILE_LINK_DATA } from "../constants/TILE_LINK_DATA";
 const TilesNews:React.FC = memo(() => {
     const [articles] = useFetchData<TArticlesData[]>(TILE_LINK_DATA);
     
-    const filteredNewsSlice = filterNonexistentNews<TArticlesData>(articles, "urlToImage", false)
+    const filteredNewsSlice = filterNonexistentNews<TArticlesData>(articles, ["urlToImage", "title"], [null, "[Removed]"])
 
     console.log(filteredNewsSlice)
     return(
         <section className={st.tiles_news}>
             {
-            articles.length > 0 ? filteredNewsSlice.map(article => <TileNewItem title={article?.["title"]}
-                                                                       description={article?.["description"]}
-                                                                       img={article?.["urlToImage"]}
+            articles.length > 0 ? filteredNewsSlice.map((article, i) => <TileNewItem key={article?.["title"] + i}
+                                                                        title={article?.["title"]}
+                                                                        description={article?.["description"]}
+                                                                        img={article?.["urlToImage"]}
                                                                     />) : ''
             }
             
