@@ -1,21 +1,28 @@
 import React, { useState } from "react";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import st from "./MainNewsBlock.module.scss";
 import { useFetchData } from "../../../hook/useFetchData";
 import { TArticlesData } from "../../../types/articlesData";
 import { filterNonexistentNews } from "../../../helpers/filterField";
+import { LINK_TOPIC_NEWS } from "../constants/LINK_TOPIC_NEWS"; 
 
 const MainNewsBlock:React.FC = () => {
-    const [count, setCount] = useState(4);
-    const [articles] = useFetchData<TArticlesData[]>("https://newsapi.org/v2/everything?q=Apple&from=2024-04-01&sortBy=popularity");
-
-    const filteredArray = filterNonexistentNews(articles, "title", "[Removed]", 15);
+    const [count, setCount] = useState(1);
+    const [articles] = useFetchData<TArticlesData[]>(LINK_TOPIC_NEWS);
+    const filteredArrayArticles = filterNonexistentNews<TArticlesData>(articles, ["title", "urlToImage"], ["[Removed]", null], 20);
 
     const rightBt = () => {
-        setCount(count + 1);
+        count == filteredArrayArticles.length - 1 ? setCount(filteredArrayArticles.length - 1) : setCount(count + 1);
     }
 
     const leftBt = () => {
-        setCount(count - 1);
+        count === 0 ? setCount(0) : setCount(count - 1);
+    }
+
+    const fadeClassStyle = (counter: number) => {
+        if (count === counter) return st.button_slide + ' ' + st.fade_button;
+        else return st.button_slide;
     }
     return(
         <section className={st.news_main_block}>
@@ -23,20 +30,25 @@ const MainNewsBlock:React.FC = () => {
             articles.length > 0 ?
                 <React.Fragment>
                     <div className={st.news_main_block__image}>
-                        <img src={filteredArray[count]["urlToImage"]} alt="image" />
+                        <LazyLoadImage 
+                            height="99.7%"
+                            width="100%"  
+                            effect="blur"
+                            src={filteredArrayArticles[count]["urlToImage"]} 
+                            alt="image" />
                     </div>
                     <div className={st.buttonsNav}>
-                        <button onClick={leftBt}>Previous</button>
-                        <button onClick={rightBt}>Next</button>
+                        <button onClick={leftBt} className={fadeClassStyle(0)}>Previous</button>
+                        <button onClick={rightBt} className={fadeClassStyle(filteredArrayArticles.length-1)}>Next</button>
                     </div>
                     <div className={st.news_main_block__title}>
-                        <h2>{filteredArray[count]["title"]}</h2>
+                        <h2>{filteredArrayArticles[count]["title"]}</h2>
                     </div>
                     <div className={st.news_main_block__description}>
-                        <p>{filteredArray[count]["description"]}</p>
+                        <p>{filteredArrayArticles[count]["description"]}</p>
                     </div>
                     <div className={st.news_main_block__author}>
-                        <p>{filteredArray[count]["author"]}</p>
+                        <p>{filteredArrayArticles[count]["author"]}</p>
                     </div>
                 </React.Fragment> : ''
             }
