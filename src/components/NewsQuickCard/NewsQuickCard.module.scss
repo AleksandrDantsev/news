@@ -26,7 +26,11 @@
     }
 }
 .news_quick_card__bottom_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     height: 50%;
+    margin-right: 15px;
 }
 .news_quick_card__name {
     height: 45%;
