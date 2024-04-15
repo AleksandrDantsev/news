@@ -1,7 +1,13 @@
 import { useMemo } from "react";
 
-export const filterNonexistentNews = <T>(articles: T[], category: string | string[], forbiden: any, quant: number = 5): T[] => useMemo(() => {
-    if (articles.length > 0) {
+export const filterNonexistentNews = <T>(
+    articles: T[], 
+    category: string | string[], 
+    forbiden: any, 
+    quant: number = 5,
+    ): T[] => useMemo(() => {
+
+    if (Array.isArray(articles) && articles.length > 0) {
         let resultArray = articles;
 
         const categoryArray = Array.isArray(category) ? category : [category]
@@ -13,8 +19,8 @@ export const filterNonexistentNews = <T>(articles: T[], category: string | strin
                 )
             );
         }
-        console.log('repaint')
+
         return resultArray.slice(0, quant); 
     }
     else return [];
-}, [articles])
+}, [articles, quant])
