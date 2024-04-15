@@ -1,0 +1,29 @@
+.search_form {
+    position: relative;
+    height: 40px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+.input_search_topic {
+    height: 100%;
+    width: 100%;
+    padding: 0 15px;
+    font-size: 15px;
+    border: solid 1px rgb(201, 201, 201);
+}
+
+.clear_text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    right: 10px;
+    top: 5px;
+    cursor: pointer;
+    transition-duration: 200ms;
+    &:hover {
+        background-color: rgb(241, 241, 241);
+    }
+}
