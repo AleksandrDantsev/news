@@ -1,8 +1,7 @@
 import React, { memo } from "react";
 import ButtonReadLater from "../../UI/ButtonReadLater/ButtonReadLater";
 import st from "./NewsQuickCard.module.scss";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+import { ImageLazy } from "../../hoc/ImageLazy";
 
 interface INewsQuickCard {
     title: string;
@@ -14,7 +13,7 @@ const NewsQuickCard:React.FC<INewsQuickCard> = memo(({title, author, img}) => {
     return(
         <div className={st.news_quick_card}>
             <div className={st.news_quick_card__img}>
-                <LazyLoadImage effect="blur" src={img} alt={title} height="100%" />
+                <ImageLazy effect={"blur"} src={img} alt={title} height={"100%"} />
                 <div className={st.button_absolute_block}>
                     <ButtonReadLater />
                 </div>
