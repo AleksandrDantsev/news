@@ -112,6 +112,9 @@ textarea {
 button,
 input { /* 1 */
   overflow: visible;
+  &:focus {
+    outline: solid 1px rgb(187, 187, 187);
+  }
 }
 
 button,
