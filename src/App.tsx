@@ -4,6 +4,7 @@ import './App.scss'
 import Layout from './layout/Layout';
 import Main from './pages/Main/Main';
 import Article from './pages/Article/Article';
+import { SearchWindow } from './pages/SearchWindow/SearchWindow';
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Main />}/>
-          <Route path="/1" element={<Article />}/>
+          <Route path="/politics/:id" element={<Article />}/>
+          <Route path="/search" element={<SearchWindow />}/>
         </Route>
       </Routes>
     </Fragment>
