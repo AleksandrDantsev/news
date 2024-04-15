@@ -1,0 +1,21 @@
+.not_found_search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50vh;
+}
+.not_found_conteiner {
+    text-align: center;
+    width: 100%;
+    span {
+        font-size: 20px;
+    }
+}
+
+.read_more {
+    display: flex;
+    padding: 50px 0 100px 0;
+    align-items: center;
+    justify-content: center;
+}
