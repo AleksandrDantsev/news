@@ -6,7 +6,12 @@
     background-color: #fff;
     cursor: pointer;
     transition-duration: 500ms;
+    border: 0;
     &:hover {
         box-shadow: 0 0 5px 1px gray;
     }
+}
+
+.added_to_collections {
+    background-color: #161616;
 }
