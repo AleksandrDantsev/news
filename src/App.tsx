@@ -5,6 +5,7 @@ import Layout from './layout/Layout';
 import Main from './pages/Main/Main';
 import Article from './pages/Article/Article';
 import { SearchWindow } from './pages/SearchWindow/SearchWindow';
+import { ReadLaterCollection } from './pages/ReadLaterCollection/ReadLaterCollection';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route index element={<Main />}/>
           <Route path="/politics/:id" element={<Article />}/>
           <Route path="/search" element={<SearchWindow />}/>
+          <Route path="/read-later" element={<ReadLaterCollection />}/>
         </Route>
       </Routes>
     </Fragment>
