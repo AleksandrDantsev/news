@@ -1,0 +1,17 @@
+.bt_regular {
+    border-radius: 3px;
+    color: #fff;
+    border: 0;
+    background-color: #1b1b1b;
+    cursor: pointer;
+    transition-duration: 500ms;
+    &:hover {
+        background-color: #272727;
+    }
+}
+
+.read_more_bt {
+    height: 45px;
+    width: 180px;
+    line-height: 40px;
+}

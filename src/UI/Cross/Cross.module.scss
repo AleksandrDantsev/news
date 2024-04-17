@@ -1,0 +1,7 @@
+.bt_icon {
+    cursor: pointer;
+    transition-duration: 500ms;
+    &:hover {
+        box-shadow: 0 0 5px 1px gray;
+    }
+}
