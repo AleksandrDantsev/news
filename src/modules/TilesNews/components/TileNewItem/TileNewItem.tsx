@@ -1,27 +1,37 @@
-import React, {memo} from "react";
+import React, { memo } from "react";
 import st from "./TileNewItem.module.scss";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+import { ImageLazy } from "../../../../hoc/ImageLazy";
+import { cutTextNews } from "../../../../helpers/cutTextNews";
+import ButtonReadLater from "../../../../UI/ButtonReadLater/ButtonReadLater";
+import { useActionForCollections } from "../../../../hook/useActionForCollections";
+import { TArticlesData } from "../../../../types/articlesData";
 
 interface ITileNewItem {
-    title: string;
-    description: string;
-    img: string;
+    data: TArticlesData;
 }
 
-const TileNewItem:React.FC<ITileNewItem> = memo(({title, description, img}) => {
+const TileNewItem:React.FC<ITileNewItem> = memo(({data}) => {
+    const [isAddedToCollections, actionForCollections] = useActionForCollections(data["title"], data);
+
+    const returnCheckLengthDesc = cutTextNews(data["description"], 250);
+    const returnCheckLengthTitle = cutTextNews(data["title"], 80);  
+
     return(
         <div className={st.tile_new_item}>
             <div className={st.tile_new_item__info}>
                 <div className={st.tile_new_item__title}>
-                    <h3>{title}</h3>
+                    <h3>{returnCheckLengthTitle}</h3>
                 </div>
                 <div className={st.tile_new_item__description}>
-                    {description}
+                    {returnCheckLengthDesc}
                 </div>
             </div>
             <div className={st.tile_new_item__img}>
-                <LazyLoadImage effect="blur" src={img} alt={title} />
+                <ImageLazy effect="blur" src={data["urlToImage"]} alt={data["title"]} />
+                <div className={st.read_later_block}>
+                    <ButtonReadLater addToCollections={actionForCollections} 
+                                     isAddedToCollections={isAddedToCollections}/>
+                </div>  
             </div>
         </div>
     );
