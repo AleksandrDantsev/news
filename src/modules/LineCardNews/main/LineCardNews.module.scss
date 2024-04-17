@@ -14,3 +14,7 @@
     display: flex;
     justify-content: space-between;
 }
+
+.cart_cont {
+  width: calc(100% / 4 - 10px);
+}
